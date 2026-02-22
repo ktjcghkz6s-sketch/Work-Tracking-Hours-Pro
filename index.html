@@ -6,10 +6,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#6366f1">
-    <title>Work Tracker Pro</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js  "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js  "></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css  " rel="stylesheet">
+    <title>Work Time Tracker Pro</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #6366f1;
@@ -1233,7 +1233,7 @@
     <div class="app-wrapper">
         <!-- Sync Status Indicator -->
         <div id="syncStatus" class="sync-status online" style="display: none;">
-            <i class="fas fa-cloud"></i> <span>Synced</span>
+            <i class="fas fa-cloud"></i> <span>Synchronized</span>
         </div>
 
         <!-- Auth Screen -->
@@ -1241,7 +1241,7 @@
             <div class="auth-box">
                 <div class="auth-logo">
                     <i class="fas fa-clock"></i>
-                    <h1>Work Tracker</h1>
+                    <h1>Work Time Tracker</h1>
                 </div>
 
                 <div class="auth-tabs">
@@ -1251,7 +1251,7 @@
 
                 <div id="employeeAuth" class="auth-section">
                     <div style="text-align: center; margin-bottom: 20px;">
-                        <p style="color: var(--text-light); font-size: 0.9rem;">Select your name and enter PIN</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Select your name and enter your PIN</p>
                     </div>
                     <button class="btn btn-secondary" onclick="showEmployeeList()" style="margin-bottom: 16px;">
                         <i class="fas fa-users"></i> Select Employee
@@ -1340,7 +1340,7 @@
         <!-- Main App -->
         <div id="mainApp" class="hidden">
             <header class="app-header">
-                <h1><i class="fas fa-clock"></i> <span id="headerTitle">Work Tracker</span></h1>
+                <h1><i class="fas fa-clock"></i> <span id="headerTitle">Work Time Tracker</span></h1>
                 <div class="header-actions">
                     <button class="header-btn" onclick="toggleTheme()" title="Toggle Theme">
                         <i class="fas fa-moon" id="themeIcon"></i>
@@ -1379,7 +1379,7 @@
                             <div class="stat-card">
                                 <div class="stat-icon green"><i class="fas fa-euro-sign"></i></div>
                                 <div class="stat-value" id="totalPayroll">€0</div>
-                                <div class="stat-label">Total Payroll</div>
+                                <div class="stat-label">Payroll</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-icon orange"><i class="fas fa-calendar"></i></div>
@@ -1405,7 +1405,7 @@
                         <h2 class="card-title"><i class="fas fa-lock"></i> Admin Security</h2>
                         <div class="info-box" style="background: rgba(139, 92, 246, 0.08); border-left-color: var(--admin);">
                             <strong>Change Admin Password</strong>
-                            Update the master password used to access the admin dashboard.
+                            Update the master password for accessing the admin dashboard.
                         </div>
                         <div class="input-group" style="margin-bottom: 12px;">
                             <label>New Admin Password</label>
@@ -1420,10 +1420,10 @@
                     </div>
 
                     <div class="card">
-                        <h2 class="card-title"><i class="fas fa-sync"></i> Cloud Sync</h2>
+                        <h2 class="card-title"><i class="fas fa-sync"></i> Cloud Synchronization</h2>
                         <div class="info-box">
                             <strong>Cloud Sync Active</strong>
-                            Data automatically synchronizes with JSONBin.io. Available on all devices.
+                            Data is automatically synchronized with JSONBin.io. Available on all devices.
                         </div>
                         <div class="btn-row">
                             <button class="btn btn-secondary" onclick="forceSync()">
@@ -1453,7 +1453,7 @@
                             <div class="stat-card">
                                 <div class="stat-icon green"><i class="fas fa-calendar-check"></i></div>
                                 <div class="stat-value" id="workingDays">0</div>
-                                <div class="stat-label">Days Worked</div>
+                                <div class="stat-label">Work Days</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-icon orange"><i class="fas fa-fire"></i></div>
@@ -1474,7 +1474,7 @@
 
                         <div class="info-box">
                             <strong>9h Standard | Select Multiple Days to Copy</strong>
-                            Tap checkbox to select days, then choose source day to copy hours.
+                            Tap checkbox to select days, then choose source day to copy from.
                         </div>
 
                         <!-- Multi-Select Copy Section -->
@@ -1484,7 +1484,7 @@
                                     <i class="fas fa-copy"></i> Copy Hours
                                 </div>
                                 <button class="btn btn-sm btn-outline" onclick="clearSelection()" style="width: auto;">
-                                    Clear
+                                    Reset
                                 </button>
                             </div>
                             
@@ -1504,7 +1504,7 @@
                             </div>
                             
                             <div id="copyPreview" style="font-size: 0.8rem; color: var(--text-light); margin-top: 8px; display: none;">
-                                Will copy: <span id="copyPreviewText" style="color: var(--primary); font-weight: 600;"></span>
+                                Copying: <span id="copyPreviewText" style="color: var(--primary); font-weight: 600;"></span>
                             </div>
                         </div>
 
@@ -1704,8 +1704,8 @@
         <!-- PDF Template -->
         <div id="pdfTemplate" class="pdf-container">
             <div class="pdf-header">
-                <h1>Work Hours Report</h1>
-                <p style="color: #666; margin-top: 5px;">Generated: <span id="pdfDate"></span> | 24h Format | 30min Break | 9h Standard</p>
+                <h1>Work Time Report</h1>
+                <p style="color: #666; margin-top: 5px;">Created: <span id="pdfDate"></span> | 24h Format | 30min Break | 9h Standard</p>
             </div>
             <div class="pdf-info">
                 <span><strong>Employee:</strong> <span id="pdfEmployeeName"></span></span>
@@ -1728,10 +1728,10 @@
                 <tbody id="pdfTableBody"></tbody>
             </table>
             <div class="pdf-summary">
-                <div><strong>Total:</strong> <span id="pdfTotalHours">0</span>h</div>
+                <div><strong>Total:</strong> <span id="pdfTotalHours">0</span> hrs</div>
                 <div><strong>Days:</strong> <span id="pdfWorkingDays">0</span></div>
-                <div><strong>Overtime:</strong> <span id="pdfOvertime">0</span>h</div>
-                <div><strong>Pay:</strong> <span id="pdfTotalSalary">€0</span></div>
+                <div><strong>Overtime:</strong> <span id="pdfOvertime">0</span> hrs</div>
+                <div><strong>Salary:</strong> <span id="pdfTotalSalary">€0</span></div>
             </div>
             <div class="pdf-footer">
                 <div class="pdf-signature">Employee</div>
@@ -1749,7 +1749,7 @@
         const { jsPDF } = window.jspdf;
         
         // JSONBin Configuration - YOUR CREDENTIALS
-        const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/699a595cd0ea881f40cda8f6 ';
+        const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/699a595cd0ea881f40cda8f6';
         const JSONBIN_KEY = '$2a$10$TLfLkbitzUsqaWtvRb.RZ./cNBJ0mrbqPmlxf.ItGcba9DByr19rm';
         
         let employees = [];
@@ -1763,6 +1763,16 @@
         const FIXED_BREAK = 30;
         const STANDARD_HOURS = 9;
         const DEFAULT_ADMIN_PASSWORD = 'admin123';
+
+        // English month names for PDF
+        const englishMonths = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        // English day names
+        const englishDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const englishDaysLong = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
         // Load from Cloud (JSONBin)
         async function loadData() {
@@ -1786,7 +1796,7 @@
                 autoSave = data.autoSave !== false;
                 
                 updateSyncStatus(true);
-                showToast('✅ Synced');
+                showToast('✅ Synchronized');
                 
                 // Refresh UI if already logged in
                 if (isAdmin) {
@@ -1858,7 +1868,7 @@
             statusEl.style.display = 'flex';
             if (online) {
                 statusEl.className = 'sync-status online';
-                statusEl.innerHTML = '<i class="fas fa-cloud"></i> <span>Synced</span>';
+                statusEl.innerHTML = '<i class="fas fa-cloud"></i> <span>Synchronized</span>';
                 setTimeout(() => statusEl.style.display = 'none', 3000);
             } else {
                 statusEl.className = 'sync-status offline';
@@ -1928,7 +1938,7 @@
                 container.innerHTML = `
                     <div class="empty-state">
                         <i class="fas fa-user-slash"></i>
-                        <h3>No employees</h3>
+                        <h3>No Employees</h3>
                         <p>Login as admin to add employees</p>
                     </div>
                 `;
@@ -2002,7 +2012,7 @@
                 document.getElementById('mainApp').classList.remove('hidden');
                 initializeEmployeeView();
             } else {
-                document.getElementById('pinError').textContent = 'Wrong PIN. Try again.';
+                document.getElementById('pinError').textContent = 'Incorrect PIN. Please try again.';
                 currentPin = '';
                 updatePinDisplay();
             }
@@ -2020,20 +2030,20 @@
                 document.getElementById('adminPassword').value = '';
                 initializeAdminView();
             } else {
-                alert('Wrong admin password');
+                alert('Incorrect admin password');
             }
         }
 
         // Admin password change from Dashboard (Admin only)
         function changeAdminPasswordFromDashboard() {
             if (!isAdmin) {
-                showToast('❌ Admin access only');
+                showToast('❌ Admin only');
                 return;
             }
             
             const newPass = document.getElementById('adminPasswordDashboard').value;
             if (!newPass) {
-                showToast('❌ Enter new password');
+                showToast('❌ Please enter new password');
                 return;
             }
             localStorage.setItem('adminPassword', newPass);
@@ -2044,13 +2054,13 @@
         // Admin password change from Settings (Admin only)
         function changeAdminPassword() {
             if (!isAdmin) {
-                showToast('❌ Admin access only');
+                showToast('❌ Admin only');
                 return;
             }
             
             const newPass = document.getElementById('newAdminPassword').value;
             if (!newPass) {
-                showToast('❌ Enter new password');
+                showToast('❌ Please enter new password');
                 return;
             }
             localStorage.setItem('adminPassword', newPass);
@@ -2060,7 +2070,7 @@
 
         // View Initialization
         function initializeEmployeeView() {
-            document.getElementById('headerTitle').textContent = 'Work Tracker';
+            document.getElementById('headerTitle').textContent = 'Work Time Tracker';
             document.getElementById('adminDashboard').classList.add('hidden');
             document.getElementById('employeeTracker').classList.remove('hidden');
             document.getElementById('trackerTitle').textContent = currentUser.name;
@@ -2127,7 +2137,7 @@
                         <div class="employee-info" style="flex: 1;">
                             <h3>${emp.name} <span style="font-size: 0.75rem; color: var(--text-light); font-weight: 400;">(${formatMonth(emp.month)})</span></h3>
                             <div class="employee-meta">
-                                <span><i class="fas fa-clock"></i> ${stats.hours}h</span>
+                                <span><i class="fas fa-clock"></i> ${stats.hours} hrs</span>
                                 <span><i class="fas fa-calendar-check"></i> ${stats.days} days</span>
                                 <span><i class="fas fa-money-bill"></i> ${currency}${stats.pay}</span>
                             </div>
@@ -2304,7 +2314,7 @@
                 <div class="stat-card">
                     <div class="stat-icon pink"><i class="fas fa-money-bill"></i></div>
                     <div class="stat-value">${currency}${stats.pay}</div>
-                    <div class="stat-label">Pay</div>
+                    <div class="stat-label">Salary</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon orange"><i class="fas fa-percentage"></i></div>
@@ -2323,17 +2333,18 @@
                 if (data?.checkIn && data?.checkOut) {
                     const hrs = calculateHours(data.checkIn, data.checkOut);
                     const date = new Date(year, month - 1, day);
+                    const dayName = englishDays[date.getDay()];
                     html += `
                         <div style="display: flex; justify-content: space-between; padding: 10px; background: var(--bg); border-radius: 8px; margin-bottom: 8px;">
                             <div>
-                                <strong>${day} ${date.toLocaleDateString('en-US', {weekday:'short'})}</strong>
+                                <strong>${day}. ${dayName}</strong>
                                 <div style="font-size: 0.85rem; color: var(--text-light);">
                                     ${data.checkIn || '--:--'} - ${data.checkOut || '--:--'}
                                 </div>
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-weight: 700; color: ${parseFloat(hrs) > 9 ? 'var(--overtime)' : 'var(--success)'};">
-                                    ${hrs}h
+                                    ${hrs} hrs
                                 </div>
                                 ${data.notes ? `<div style="font-size: 0.75rem; color: var(--text-light);">${data.notes}</div>` : ''}
                             </div>
@@ -2342,7 +2353,7 @@
                 }
             }
 
-            document.getElementById('viewEmployeeDays').innerHTML = html || '<p style="text-align: center; color: var(--text-light); padding: 20px;">No hours recorded</p>';
+            document.getElementById('viewEmployeeDays').innerHTML = html || '<p style="text-align: center; color: var(--text-light); padding: 20px;">No hours entered</p>';
             document.getElementById('viewEmployeeModal').classList.remove('hidden');
         }
 
@@ -2375,7 +2386,7 @@
                 const isSelected = selectedDays.has(key);
                 
                 const date = new Date(year, month - 1, day);
-                const dayName = date.toLocaleDateString('en-US', { weekday: 'narrow' });
+                const dayName = englishDays[date.getDay()];
                 
                 html += `
                     <button class="day-select-btn ${hasData ? 'has-data' : ''} ${isSelected ? 'selected' : ''}" 
@@ -2426,7 +2437,8 @@
                 const dayData = currentUser.workData[key];
                 if (dayData?.checkIn && dayData?.checkOut) {
                     const date = new Date(year, month - 1, day);
-                    select.innerHTML += `<option value="${key}">${day} ${date.toLocaleDateString('en-US', {weekday:'short'})} (${dayData.checkIn}-${dayData.checkOut})</option>`;
+                    const dayName = englishDays[date.getDay()];
+                    select.innerHTML += `<option value="${key}">${day}. ${dayName} (${dayData.checkIn}-${dayData.checkOut})</option>`;
                 }
             }
             select.value = currentVal;
@@ -2509,6 +2521,7 @@
                 const hours = calculateHours(dayData.checkIn, dayData.checkOut);
                 const isOvertime = hours && parseFloat(hours) > STANDARD_HOURS;
                 const isSelected = selectedDays.has(key);
+                const dayName = englishDays[date.getDay()];
 
                 html += `
                     <div class="day-card ${isWeekend ? 'weekend' : ''} ${isToday ? 'today' : ''} ${isSelected ? 'selected-for-copy' : ''}">
@@ -2518,23 +2531,23 @@
                                     ${isSelected ? '<i class="fas fa-check"></i>' : ''}
                                 </div>
                                 <div class="day-info">
-                                    <h3>${day} ${date.toLocaleDateString('en-US', { weekday: 'short' })}</h3>
-                                    <p>${date.toLocaleDateString('en-US', { month: 'short' })}</p>
+                                    <h3>${day}. ${dayName}</h3>
+                                    <p>${englishMonths[month-1]}</p>
                                 </div>
                             </div>
-                            ${hours ? `<div class="hours-pill ${isOvertime ? 'overtime' : ''}">${parseFloat(hours).toFixed(1)}h</div>` : ''}
+                            ${hours ? `<div class="hours-pill ${isOvertime ? 'overtime' : ''}">${parseFloat(hours).toFixed(1)} hrs</div>` : ''}
                         </div>
                         
                         <div class="time-inputs">
                             <div class="time-field">
-                                <label>Check-in</label>
+                                <label>Check In</label>
                                 <input type="text" class="time-input ${dayData.checkIn && validateTime(dayData.checkIn) ? 'valid' : ''}" 
                                        value="${dayData.checkIn}" placeholder="09:00" maxlength="5" inputmode="numeric"
                                        oninput="this.value = formatTimeInput(this.value)"
                                        onblur="updateTime('${key}', 'checkIn', this.value)">
                             </div>
                             <div class="time-field">
-                                <label>Check-out</label>
+                                <label>Check Out</label>
                                 <input type="text" class="time-input ${dayData.checkOut && validateTime(dayData.checkOut) ? 'valid' : ''}" 
                                        value="${dayData.checkOut}" placeholder="18:00" maxlength="5" inputmode="numeric"
                                        oninput="this.value = formatTimeInput(this.value)"
@@ -2542,7 +2555,7 @@
                             </div>
                         </div>
                         
-                        <div class="break-badge"><i class="fas fa-coffee"></i> 30min break</div>
+                        <div class="break-badge"><i class="fas fa-coffee"></i> 30min Break</div>
                         
                         <textarea class="notes-input" placeholder="Notes..." 
                                   onblur="updateNotes('${key}', this.value)">${dayData.notes}</textarea>
@@ -2557,7 +2570,7 @@
             if (!currentUser.workData[dateKey]) currentUser.workData[dateKey] = { notes: '' };
             
             if (value && !validateTime(value)) {
-                showToast('❌ Use HH:MM format (e.g. 09:00)');
+                showToast('❌ Format: HH:MM (e.g. 09:00)');
                 renderDaysList();
                 return;
             }
@@ -2574,7 +2587,7 @@
                 if (hrs) {
                     const num = parseFloat(hrs);
                     if (num > STANDARD_HOURS) {
-                        showToast(`🔥 ${num.toFixed(1)}h (OT: ${(num - STANDARD_HOURS).toFixed(1)}h)`);
+                        showToast(`🔥 ${num.toFixed(1)} hrs (OT: ${(num - STANDARD_HOURS).toFixed(1)} hrs)`);
                     } else {
                         showToast(`✅ ${num.toFixed(1)} hours`);
                     }
@@ -2618,7 +2631,7 @@
             const otAlert = document.getElementById('overtimeAlert');
             if (overtime > 0) {
                 otAlert.style.display = 'flex';
-                document.getElementById('overtimeText').textContent = `${overtime.toFixed(1)}h over ${STANDARD_HOURS}h limit`;
+                document.getElementById('overtimeText').textContent = `${overtime.toFixed(1)} hrs over 9h limit`;
             } else {
                 otAlert.style.display = 'none';
             }
@@ -2647,7 +2660,7 @@
 
         function formatMonth(m) {
             const [y, month] = m.split('-');
-            return new Date(y, month - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+            return `${englishMonths[month-1]} ${y}`;
         }
 
         function showToast(msg) {
@@ -2730,7 +2743,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `work-tracker-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.download = `worktime-backup-${new Date().toISOString().split('T')[0]}.json`;
             a.click();
             URL.revokeObjectURL(url);
             showToast('✅ Backup exported');
@@ -2769,13 +2782,12 @@
             
             showToast('📄 Creating PDF...');
 
-            document.getElementById('pdfDate').textContent = new Date().toLocaleDateString('en-US', { 
-                year: 'numeric', month: 'long', day: 'numeric' 
-            });
+            const now = new Date();
+            document.getElementById('pdfDate').textContent = `${englishMonths[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
             document.getElementById('pdfEmployeeName').textContent = emp.name;
             document.getElementById('pdfMonth').textContent = formatMonth(emp.month);
             document.getElementById('pdfRate').textContent = emp.hourlyRate ? 
-                `${currency}${emp.hourlyRate}/h` : 'Not set';
+                `${currency}${emp.hourlyRate}/hr` : 'Not set';
 
             const [year, month] = emp.month.split('-').map(Number);
             const daysInMonth = new Date(year, month, 0).getDate();
@@ -2791,6 +2803,7 @@
                     if (hrs > 0) {
                         const date = new Date(year, month - 1, d);
                         const dayOvertime = hrs > STANDARD_HOURS ? hrs - STANDARD_HOURS : 0;
+                        const dayName = englishDays[date.getDay()];
                         
                         const checkInDisplay = data.checkIn || '--:--';
                         const checkOutDisplay = data.checkOut || '--:--';
@@ -2798,7 +2811,7 @@
                         rows += `
                             <tr style="${dayOvertime > 0 ? 'background: #fff7ed;' : ''}">
                                 <td>${key}</td>
-                                <td>${date.toLocaleDateString('en-US', {weekday:'short'})}</td>
+                                <td>${dayName}</td>
                                 <td><strong>${checkInDisplay}</strong></td>
                                 <td><strong>${checkOutDisplay}</strong></td>
                                 <td>30min</td>
